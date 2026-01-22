@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Order</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h3>Order Summary</h3>
+  <ion-list>
+    <ion-item *ngFor="let item of cart">
+      <ion-label>{{ item.name }} x{{ item.qty }} = ${{ item.price * item.qty }}</ion-label>
+    </ion-item>
+  </ion-list>
+  <h3>Total: ${{ getTotal() }}</h3>
+  <ion-button expand="block" (click)="placeOrder()">Place Order</ion-button>
+</ion-content>

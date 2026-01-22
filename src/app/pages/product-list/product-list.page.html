@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let p of products">
+      <ion-label>
+        <h2>{{ p.name }}</h2>
+        <p>${{ p.price }}</p>
+      </ion-label>
+      <ion-button (click)="addToCart(p)">Add</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="cart.length > 0">
+    <h3>Cart</h3>
+    <ion-list>
+      <ion-item *ngFor="let item of cart">
+        <ion-label>{{ item.name }} x{{ item.qty }} = ${{ item.price * item.qty }}</ion-label>
+      </ion-item>
+    </ion-list>
+    <h3>Total: ${{ getTotal() }}</h3>
+    <ion-button expand="block" (click)="checkout()">Checkout</ion-button>
+  </div>
+</ion-content>
