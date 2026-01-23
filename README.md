@@ -12,10 +12,10 @@ npm install
 
 Run the app:
 ```bash
-ionic serve
+npm run start
 ```
 
-App will open at http://localhost:8100
+App will open at http://localhost:4200
 
 ## Project Structure
 
