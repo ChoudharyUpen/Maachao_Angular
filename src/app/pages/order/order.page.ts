@@ -49,9 +49,18 @@ export class OrderPage implements OnInit {
         this.router.navigate(['/products']);
       },
       error: async (err) => {
+        let errorMessage = 'Order failed';
+        
+        // Handle 400 Bad Request for insufficient stock
+        if (err.status === 400) {
+          errorMessage = err.error || 'Insufficient stock available for the requested quantity';
+        } else {
+          errorMessage = err.error?.message || err.message || 'An error occurred while placing the order';
+        }
+        
         const alert = await this.alertCtrl.create({
-          header: 'Failed',
-          message: 'Order failed: ' + (err.error?.message || err.message),
+          header: 'Order Failed',
+          message: errorMessage,
           buttons: ['OK']
         });
         await alert.present();
