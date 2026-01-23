@@ -71,7 +71,7 @@ Order Page:
 ## Important Notes
 
 - Make sure backend is running before starting the app
-- Backend must allow CORS from http://localhost:8100
+- Backend must allow CORS from http://localhost:4200
 - Cart data is stored in memory only (resets on page refresh)
 - Currently only processes first item in cart when placing order
 
